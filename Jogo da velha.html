@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+</head>
+<body>
+
+    <div id="main">
+        <div class="box" num=1></div>
+        <div class="box" num=2></div>
+        <div class="box" num=3></div>
+        <div class="box" num=4></div>
+        <div class="box" num=5></div>
+        <div class="box" num=6></div>
+        <div class="box" num=7></div>
+        <div class="box" num=8></div>
+        <div class="box" num=9></div>
+    </div><br>
+    <div id="res"></div>
+    <style>
+    #main{
+        width: 200px;
+        margin: 20% auto;
+    }
+    .box{
+        width: 50px;
+        height: 50px;
+        border: 1px black solid;
+        float: left;
+    }
+    #res{
+        position: absolute;
+        margin: -10% 44.5%;
+    }
+    </style>    
+        <script>
+let counter = 0,
+  verify = [],
+  sequence = null,
+  tester,
+  p1 = [],
+  p2 = [],
+  toAssign = function (player, numPlayer) {
+    return player[6] = {
+      player: numPlayer
+    }
+  }
+
+toAssign(p1, "1")
+toAssign(p2, "2")
+
+testing = function (player) {
+  console.log(player)
+  if (player.indexOf("1") != -1 && player.indexOf("2") != -1 && player.indexOf("3") != -1 ||
+    player.indexOf("4") != -1 && player.indexOf("5") != -1 && player.indexOf("6") != -1 ||
+    player.indexOf("7") != -1 && player.indexOf("8") != -1 && player.indexOf("9") != -1
+
+    ||
+    player.indexOf("1") != -1 && player.indexOf("4") != -1 && player.indexOf("7") != -1 ||
+    player.indexOf("2") != -1 && player.indexOf("5") != -1 && player.indexOf("8") != -1 ||
+    player.indexOf("3") != -1 && player.indexOf("9") != -1 && player.indexOf("6") != -1
+
+    ||
+    player.indexOf("1") != -1 && player.indexOf("5") != -1 && player.indexOf("9") != -1 ||
+    player.indexOf("3") != -1 && player.indexOf("5") != -1 && player.indexOf("7") != -1) {
+
+
+    counter = 0
+    verify = []
+    sequence = null
+    tester
+    p1 = []
+    p2 = []
+
+    toAssign(p1, "1")
+    toAssign(p2, "2")
+    document.querySelectorAll(".box").forEach(e => {
+      e.style.background = "#fff"
+      document.querySelector('#res').innerHTML = `Player ${player[6].player} wins`
+
+    })
+  }
+}
+document.querySelectorAll('.box').forEach(e => {
+  e.onclick = function () {
+    sequence = e.getAttribute('num')
+    tester = verify.indexOf(sequence)
+
+    if (tester == -1) {
+
+      if (counter % 2 == 0) {
+        e.style.background = "red"
+        verify[sequence] = sequence
+        p1[sequence] = sequence
+
+      } else {
+        e.style.background = "green"
+        verify[sequence] = sequence
+        p2[sequence] = sequence
+      }
+      counter++
+
+    } else {
+      alert("clique em outro campo")
+    }
+    testing(p1)
+    testing(p2)
+
+  }
+})
+            </script>
+</body>
+</html>
